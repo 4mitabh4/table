@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
     <link
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       rel="stylesheet"
@@ -49,6 +50,23 @@
         </tr>
       </thead>
     </table>
-    <script src="adx.js"></script>
+    <!-- <script src="adx.js"></script> -->
+    <script>
+      $(document).ready(function() {
+        $.getJSON("test.json", function(data) {
+          var x = "";
+          $.each(data, function(key, value) {
+            x += "<tr>";
+            x += "<td>" + value.sl_no + "</td>";
+            x += "<td>" + value.name + "</td>";
+            x += "<td>" + value.c_case_n + "</td>";
+            x += "<td>" + value.c_case_i + "</td>";
+            x += "<td>" + value.cured + "</td>";
+            x += "<td>" + value.death + "</td>";
+          });
+          $("#table").append(x);
+        });
+      });
+    </script>
   </body>
 </html>
