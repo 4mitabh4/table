@@ -1,4 +1,4 @@
-Plotly.d3.csv("https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv", function(err, rows){
+Plotly.d3.csv("data.csv", function(err, rows){
 
   function unpack(rows, key) {
   return rows.map(function(row) { return row[key]; });
@@ -8,33 +8,37 @@ Plotly.d3.csv("https://raw.githubusercontent.com/plotly/datasets/master/finance-
 var trace1 = {
   type: "scatter",
   mode: "lines",
-  x: unpack(rows, 'Date'),
-  y: unpack(rows, 'AAPL.High'),
+  x: unpack(rows, 'date'),
+  y: unpack(rows, 'confirmed_cases'),
   line: {color: '#17BECF'}
 }
 
-var trace2 = {
-  type: "scatter",
-  mode: "lines",
-  x: unpack(rows, 'Date'),
-  y: unpack(rows, 'AAPL.Low'),
-  line: {color: '#7F7F7F'}
-}
+// var trace2 = {
+//   type: "scatter",
+//   mode: "lines",
+//   x: unpack(rows, 'Date'),
+//   y: unpack(rows, 'AAPL.Low'),
+//   line: {color: '#7F7F7F'}
+// }
 
-var data = [trace1,trace2];
-
+// var data = [trace1,trace2];
+var data = [trace1];
 var layout = {
-  title: 'Custom Range',
-  xaxis: {
-    range: ['2016-07-01', '2016-12-31'],
-    type: 'date'
-  },
-  yaxis: {
-    autorange: true,
-    range: [86.8700008333, 138.870004167],
-    type: 'linear'
-  }
+  title: 'Basic Time Series',
 };
+// var layout = {
+//   title: 'Custom Range',
+//   xaxis: {
+//     range: ['2016-07-01', '2016-12-31'],
+//     type: 'date'
+//   },
+//   yaxis: {
+//     autorange: true,
+//     range: [86.8700008333, 138.870004167],
+//     type: 'linear'
+//   }
+  
+// };
 
 Plotly.newPlot('myDiv', data, layout);
 })
