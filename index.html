@@ -4,69 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
-
-    <style>
-      .col-1-3 {
-        width: 33%;
-        padding: 0.5%;
-      }
-      .outer {
-        padding: 10px;
-        background: red;
-      }
-
-      th {
-        text-align: center;
-        vertical-align: center;
-      }
-    </style>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   </head>
   <body>
-    <table class="table" id="table">
-      <thead>
-        <tr>
-          <th>sl_no</th>
-          <th>name</th>
-          <th>cases namtional</th>
-          <th>cases foreign</th>
-          <th>cured</th>
-          <th>death</th>
-        </tr>
-      </thead>
-    </table>
-    <!-- <script src="adx.js"></script> -->
-    <script>
-      $(document).ready(function() {
-        $.getJSON("test.json", function(data) {
-          var x = "";
-          $.each(data, function(key, value) {
-            x += "<tr>";
-            x += "<td>" + value.sl_no + "</td>";
-            x += "<td>" + value.name + "</td>";
-            x += "<td>" + value.c_case_n + "</td>";
-            x += "<td>" + value.c_case_i + "</td>";
-            x += "<td>" + value.cured + "</td>";
-            x += "<td>" + value.death + "</td>";
-          });
-          $("#table").append(x);
-        });
-      });
-    </script>
+    <div id="myDiv"></div>
+    <script src="main.js"></script>
   </body>
 </html>
