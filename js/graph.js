@@ -1,4 +1,5 @@
-Plotly.d3.csv("data.csv", function(err, rows) {
+// confirmed 
+Plotly.d3.csv("confirmed_data.csv", function (err, rows) {
   function unpack(rows, key) {
     return rows.map(function(row) {
       return row[key];
@@ -16,8 +17,64 @@ Plotly.d3.csv("data.csv", function(err, rows) {
 
   var data = [trace1];
   var layout = {
-    title: "Basic Time Series"
+    title: "corona timeline for number of confirmed cases (india)"
   };
 
-  Plotly.newPlot("myDiv", data, layout);
+  Plotly.newPlot("confirmed", data, layout);
+});
+
+
+
+// death 
+
+
+Plotly.d3.csv("death_data.csv", function(err, rows) {
+  function unpack(rows, key) {
+    return rows.map(function(row) {
+      return row[key];
+    });
+  }
+
+  var trace1 = {
+    type: "scatter",
+    mode: "lines",
+    x: unpack(rows, "date"),
+    y: unpack(rows, "confirmed_cases"),
+    line: { color: "#17BECF" }
+  };
+
+
+  var data = [trace1];
+  var layout = {
+    title: "corona timeline for number of deaths (india)"
+  };
+
+  Plotly.newPlot("death", data, layout);
+});
+
+
+// recovery 
+
+Plotly.d3.csv("recovered_data.csv", function(err, rows) {
+  function unpack(rows, key) {
+    return rows.map(function(row) {
+      return row[key];
+    });
+  }
+
+  var trace1 = {
+    type: "scatter",
+    mode: "lines",
+    x: unpack(rows, "date"),
+    y: unpack(rows, "confirmed_cases"),
+    line: { color: "#17BECF" }
+  };
+
+
+  var data = [trace1];
+  var layout = {
+    title: "corona timeline for number of recovery (india)"
+  };
+
+  Plotly.newPlot("recovery", data, layout);
 });
