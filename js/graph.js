@@ -17,7 +17,7 @@ Plotly.d3.csv("confirmed_data.csv", function (err, rows) {
 
   var data = [trace1];
   var layout = {
-    title: "corona timeline for number of confirmed cases (india)"
+    title: "number of confirmed cases (india)"
   };
 
   Plotly.newPlot("confirmed", data, layout);
@@ -46,7 +46,7 @@ Plotly.d3.csv("death_data.csv", function(err, rows) {
 
   var data = [trace1];
   var layout = {
-    title: "corona timeline for number of deaths (india)"
+    title: "number of deaths (india)"
   };
 
   Plotly.newPlot("death", data, layout);
@@ -73,7 +73,7 @@ Plotly.d3.csv("recovered_data.csv", function(err, rows) {
 
   var data = [trace1];
   var layout = {
-    title: "corona timeline for number of recovery (india)"
+    title: "number of recovery (india)"
   };
 
   Plotly.newPlot("recovery", data, layout);
